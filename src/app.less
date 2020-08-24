@@ -1,0 +1,84 @@
+@box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5);
+@col-primary: #32b987;
+
+body{
+    margin: 0;
+}
+#root{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+
+    .navbar{
+        height: 100vh;
+        width: 200px;
+        color: #fff;
+        //padding: 20px;
+        display: inline-flex;
+        flex-direction: column;
+        background-color: @col-primary;
+        box-shadow: @box-shadow;
+
+        button{
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            color: #fff;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover{
+                background-color: #000;
+            }
+        }
+    }
+
+    .selected-page{
+        height: 100vh;
+        position: absolute;
+        display: inline-flex;
+        overflow: scroll;
+
+        .card-grid{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .card{
+                background-color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                padding: 30px;
+                border-radius: 4px;
+                margin: 20px;
+                box-shadow: @box-shadow, inset 0px 0px 6px 0 #ffdf6d;
+                transform-style: preserve-3d;
+                transition: 150ms;
+                transform: perspective(1000px) rotateY(0);
+                width: 200px; 
+                height: 50px;
+                cursor: pointer;
+                
+        
+                &.flip{
+                    transform: perspective(1000px) rotateY(180deg);
+                    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5), inset 0px 0px 6px 0 #6dff71;
+                }
+            
+                .front, .back{
+                    position: absolute;
+                    backface-visibility: hidden;
+                }
+        
+                .back{
+                    transform: rotateY(180deg);
+                }
+            }
+        }
+    }
+    
+    
+}
+
