@@ -7,32 +7,34 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  withRouter
 } from 'react-router-dom'
 
 function App() {
   const [flashcards, setFlashcards] = useState(cardContent);
   return (
     <div>
-      <Nav />
+      
+      <Router>
+          <Nav />
+
+          <div className="selected-page">
+            <Switch>
+              <Route path="/add">
+                  <div>Add</div>
+              </Route>
+              <Route path="/cards">
+                  <ViewCardsPage flashcards={flashcards}/>
+              </Route>
+              <Route path="/">
+                  <div>home</div>
+              </Route>
+            </Switch>
+          </div>
+      </Router>
       
       
-      <div className="selected-page">
-        <Router>
-          <Switch>
-            <Route path="/add">
-                <div>Add</div>
-            </Route>
-            <Route path="/cards">
-                <div>cards</div>
-            </Route>
-            <Route path="/">
-                <div>home</div>
-            </Route>
-          </Switch>
-        </Router>
-        {/* <ViewCardsPage flashcards={flashcards}/> */}
-      </div>
     </div>
     
   );
