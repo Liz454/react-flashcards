@@ -3,9 +3,12 @@ import FlashcardList from '../FlashcardList';
 
 export default function ViewCardsPage({flashcards}) {
     return (
-        <div>
-            <div><h1>All cards</h1></div>
-            <FlashcardList flashcards={flashcards}/>
+        <div className="selected-page">
+            <div className="page-heading"><h1>All cards</h1></div>
+            <div className="page">
+                <FlashcardList flashcards={flashcards}/>
+            </div>
         </div>
+        
     )
 }

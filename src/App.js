@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Nav from './Nav';
 import cardContent from './cardContents.json';
 import ViewCardsPage from './pages/ViewCardsPage';
-import './app.css';
+import './dist/app.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,24 +14,21 @@ import {
 function App() {
   const [flashcards, setFlashcards] = useState(cardContent);
   return (
-    <div>
+    <div className="flex-container">
       
       <Router>
           <Nav />
-
-          <div className="selected-page">
-            <Switch>
-              <Route path="/add">
-                  <div>Add</div>
-              </Route>
-              <Route path="/cards">
-                  <ViewCardsPage flashcards={flashcards}/>
-              </Route>
-              <Route path="/">
-                  <div>home</div>
-              </Route>
-            </Switch>
-          </div>
+          <Switch>
+            <Route path="/add">
+                <div>Add</div>
+            </Route>
+            <Route path="/cards">
+                <ViewCardsPage flashcards={flashcards}/>
+            </Route>
+            <Route path="/">
+                <div>home</div>
+            </Route>
+          </Switch>
       </Router>
       
       

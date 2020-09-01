@@ -1,5 +1,8 @@
 @box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5);
 @col-primary: #32b987;
+@col-primary-dark: #217254;
+@card-front: rgb(219, 255, 247);
+@card-back: #fffce8;
 
 body{
     margin: 0;
@@ -10,76 +13,103 @@ body{
     display: flex;
     flex-direction: row;
 
-    .navbar{
-        height: 100vh;
-        width: 200px;
-        color: #fff;
-        //padding: 20px;
-        display: inline-flex;
-        flex-direction: column;
-        background-color: @col-primary;
-        box-shadow: @box-shadow;
+    
+    .flex-container{
+        display: flex;
 
-        .navButton{
-            display: block;
-            height: 50px;
-            font-size: 20px;
-            border: none;
+        .navbar{
+            height: 100vh;
+            width: 200px; 
             color: #fff;
-            background-color: transparent;
-            cursor: pointer;
-
-            &:hover{
-                background-color: #000;
-            }
-        }
-        
-    }
-
-    .selected-page{
-        height: 100vh;
-        position: absolute;
-        display: inline-flex;
-        overflow: scroll;
-
-        .card-grid{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            .card{
-                background-color: #fff;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                padding: 30px;
-                border-radius: 4px;
-                margin: 20px;
-                box-shadow: @box-shadow, inset 0px 0px 6px 0 #ffdf6d;
-                transform-style: preserve-3d;
-                transition: 150ms;
-                transform: perspective(1000px) rotateY(0);
-                width: 200px; 
-                height: 50px;
+            flex-shrink: 0;
+            display: inline-flex;
+            flex-direction: column;
+            background-color: @col-primary;
+            box-shadow: @box-shadow;
+            text-align: center;
+    
+    
+            .navButton{
+                display: block;
+                font-size: 20px;
+                padding: 20px;
+                border: none;
+                color: #fff;
+                background-color: transparent;
                 cursor: pointer;
-                
-        
-                &.flip{
-                    transform: perspective(1000px) rotateY(180deg);
-                    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.5), inset 0px 0px 6px 0 #6dff71;
+                text-decoration: none;
+    
+                &:hover{
+                    background-color: @col-primary-dark;
                 }
+            }
             
-                .front, .back{
-                    position: absolute;
-                    backface-visibility: hidden;
-                }
-        
-                .back{
-                    transform: rotateY(180deg);
+        }
+
+        .selected-page{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+    
+            .page-heading{
+                text-align: center;
+                height: 80px;
+                width: 100%;
+                flex-grow: 0;
+            }
+    
+            .page{
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: calc(100vh - 80px);
+                justify-self: flex-end;
+                box-shadow: inset;
+                flex-grow: 4;
+            }
+    
+            .card-grid{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                .card{
+                    background-color: @card-front;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    padding: 30px;
+                    border-radius: 4px;
+                    margin: 20px;
+                    box-shadow: @box-shadow;
+                    transform-style: preserve-3d;
+                    transition: 150ms;
+                    transform: perspective(1000px) rotateY(0);
+                    width: 200px; 
+                    height: 50px;
+                    cursor: pointer;
+                    
+            
+                    &.flip{
+                        transform: perspective(1000px) rotateY(180deg);
+                        background-color: @card-back;
+                    }
+                
+                    .front, .back{
+                        position: absolute;
+                        backface-visibility: hidden;
+                    }
+            
+                    .back{
+                        transform: rotateY(180deg);
+                    }
                 }
             }
         }
+    
     }
+
+    
+    
     
     
 }
