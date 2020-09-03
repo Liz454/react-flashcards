@@ -12,6 +12,7 @@ export default function Nav() {
             <div><h1>Flashcards</h1></div>
             <nav>
                 <Link className='navButton' to="/">Home</Link>
+                <Link className='navButton' to="/learn">Learn</Link>
                 <Link className='navButton' to="/add">Add</Link>
                 <Link className='navButton' to="/cards">All Cards</Link>
             </nav>

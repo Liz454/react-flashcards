@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Nav from './Nav';
 import cardContent from './cardContents.json';
 import ViewCardsPage from './pages/ViewCardsPage';
+import AddCardPage from './pages/AddCardPage';
 import './dist/app.css';
 import {
   BrowserRouter as Router,
@@ -19,8 +20,11 @@ function App() {
       <Router>
           <Nav />
           <Switch>
+            <Route path="/learn">
+                <div>Learn</div>
+            </Route>
             <Route path="/add">
-                <div>Add</div>
+                <AddCardPage flashcards={flashcards}/>
             </Route>
             <Route path="/cards">
                 <ViewCardsPage flashcards={flashcards}/>
