@@ -1,0 +1,38 @@
+[    
+    {
+    "id": 0,
+    "SRI": 1,
+    "front": "la lámina",
+    "back" : "sheet, plate"
+    },
+    {
+    "id": 1,
+    "SRI": 1,
+    "front": "tragarse",
+    "back" : "to swallow"
+    },
+    {
+    "id": 2,
+    "SRI": 1,
+    "front": "la fiera",
+    "back" : "beast"
+    },
+    {
+    "id": 3,
+    "SRI": 1,
+    "front": "trazar",
+    "back" : "to trace, to draw"
+    },
+    {
+    "id": 4,
+    "SRI": 1,
+    "front": "asustarse",
+    "back" : "to get scared"
+    },
+    {
+    "id": 5,
+    "SRI": 1,
+    "front": "la obra maestra",
+    "back" : "masterpiece"
+    }
+]

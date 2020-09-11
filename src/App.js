@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import Nav from './Nav';
-import cardContent from './cardContents.json';
+import cardContent from './data/cardContentsSmall.json';
 import ViewCardsPage from './pages/ViewCardsPage';
+import LearnPage from './pages/LearnPage';
 import AddCardPage from './pages/AddCardPage';
 import './dist/app.css';
 import {
@@ -21,7 +22,7 @@ function App() {
           <Nav />
           <Switch>
             <Route path="/learn">
-                <div>Learn</div>
+                <LearnPage flashcards={flashcards}/>
             </Route>
             <Route path="/add">
                 <AddCardPage flashcards={flashcards}/>
